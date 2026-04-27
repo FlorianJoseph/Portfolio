@@ -1,12 +1,19 @@
 <template>
-  <div class="h-screen overflow-hidden">
+  <div class="h-screen overflow-hidden ">
+    <!-- Background -->
+    <div class="stars" />
+    <div class="mist">
+      <div class="mist-layer" />
+      <div class="mist-layer" />
+      <div class="mist-layer" />
+    </div>
     <Topbar />
 
     <!-- Views -->
-    <div class="pt-11 h-full">
+    <div class="pt-14 h-full flex-1 overflow-hidden">
       <RouterView v-slot="{ Component, route }">
         <Transition name="view-fade" mode="out-in">
-          <component :is="Component" :key="route.fullPath" />
+          <component :is="Component" :key="route.fullPath" class="h-full w-full" />
         </Transition>
       </RouterView>
     </div>
