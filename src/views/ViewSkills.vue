@@ -1,5 +1,32 @@
 <template>
-  <div class="h-full flex items-center justify-center">
-    <p class="font-cinzel text-gold">Skills — coming soon</p>
+  <div class="h-full flex items-center justify-center px-8">
+    <div class="max-w-[860px] w-full">
+
+      <!-- Header -->
+      <div class="mb-10 pb-4 border-b border-gold/20">
+        <h2 class="font-cinzel text-2xl font-bold text-gold tracking-wider">Skills</h2>
+        <p class="font-fell italic text-[#9a8f7a] text-sm mt-1">Technologies maîtrisées</p>
+      </div>
+
+      <!-- Grille -->
+      <div class="grid grid-cols-3 gap-8">
+        <div v-for="group in SKILLS" :key="group.category">
+          <h3 class="font-cinzel text-[0.7rem] tracking-[0.2em] uppercase text-gold mb-4">
+            {{ group.category }}
+          </h3>
+          <div class="flex flex-col gap-2">
+            <div v-for="item in group.items" :key="item"
+              class="px-4 py-2.5 border border-gold/30 font-cinzel text-sm text-[#e8dfc8] tracking-wide">
+              {{ item }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { SKILLS } from '@/data'
+</script>
