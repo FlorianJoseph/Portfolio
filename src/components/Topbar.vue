@@ -13,7 +13,7 @@
         <div class="h-5 w-px bg-gold/20 mx-5" />
 
         <!-- Nav routes -->
-        <nav class="flex items-center gap-1 flex-1">
+        <nav class="hidden md:flex items-center gap-1 flex-1">
             <RouterLink v-for="v in VIEWS.filter(v => v.id !== 'about')" :key="v.id" :to="{ name: v.id }"
                 class="font-cinzel text-[0.7rem] tracking-[0.08em] uppercase px-3 py-1.5 transition-all border border-transparent"
                 :class="route.name === v.id

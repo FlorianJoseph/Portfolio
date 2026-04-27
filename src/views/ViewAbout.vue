@@ -1,9 +1,9 @@
 <template>
     <div class="h-full flex items-center justify-center">
-        <div class="grid grid-cols-[260px_1fr] gap-12 items-center max-w-[960px] w-full px-8">
+        <div class="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8 md:gap-12 items-center max-w-[960px] w-full px-6">
 
             <!-- Portrait -->
-            <div class="sp relative">
+            <div class="sp relative mx-auto w-48 md:w-full">
                 <div
                     class="relative aspect-square border-2 border-gold bg-gradient-to-br from-[#1a0e30] to-[#0a1220] flex items-center justify-center overflow-hidden">
                     <div
@@ -18,20 +18,21 @@
             </div>
 
             <!-- Contenu -->
-            <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-4 text-center md:text-left">
                 <h1 class="s1 font-cinzel-deco font-bold leading-tight text-[#e8dfc8]"
-                    style="font-size: clamp(1.6rem, 4vw, 2.8rem)">
+                    style="font-size: clamp(1.2rem, 6vw, 2.8rem)">
                     <span class="block">{{ ABOUT.name }}</span>
                     <span class="block text-gold">{{ ABOUT.title }}</span>
                 </h1>
-                <p class="s2 font-cinzel text-sm tracking-[0.22em] uppercase text-purple-400">
+                <p class="s2 font-cinzel text-sm tracking-[0.22em] uppercase text-purple-400 whitespace-nowrap">
                     ✦
                     <TypedText :text="ABOUT.aboutClass" /> ✦
                 </p>
-                <p class="s3 text-[#9a8f7a] leading-relaxed border-l-2 border-gold/25 pl-4">
+                <p
+                    class="s3 text-[#9a8f7a] leading-relaxed md:border-l-2 md:border-gold/25 md:pl-4 md:text-left text-left">
                     {{ ABOUT.bio }}
                 </p>
-                <div class="s4 flex gap-4 flex-wrap">
+                <div class="s4 flex gap-4 flex-wrap justify-center md:justify-start">
                     <RouterLink to="/projects"
                         class="font-cinzel text-xs font-semibold tracking-widest uppercase px-6 py-3 bg-purple-700 text-white hover:bg-purple-600 transition-all [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
                         Voir mes projets

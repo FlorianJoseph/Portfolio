@@ -19,7 +19,7 @@
     </div>
 
     <!-- Flèche gauche -->
-    <div class="fixed left-4 top-1/2 -translate-y-1/2 z-50">
+    <div class="hidden md:block fixed left-4 top-1/2 -translate-y-1/2 z-50">
       <button v-if="!isFirst()"
         class="flex items-center gap-2 px-4 py-2.5 bg-[#080610]/75 border border-gold/25 backdrop-blur-md rounded-md hover:border-gold hover:bg-gold/8 transition-all group"
         @click="goPrev">
@@ -31,7 +31,7 @@
     </div>
 
     <!-- Flèche droite -->
-    <div class="fixed right-4 top-1/2 -translate-y-1/2 z-50">
+    <div class="hidden md:block fixed right-4 top-1/2 -translate-y-1/2 z-50">
       <button v-if="!isLast()"
         class="flex items-center gap-2 px-4 py-2.5 bg-[#080610]/75 border border-gold/25 backdrop-blur-md rounded-md hover:border-gold hover:bg-gold/8 transition-all group"
         @click="goNext">
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Dots -->
-    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2">
+    <div class="hidden md:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-50 items-center gap-2">
       <button v-for="(v, i) in VIEWS" :key="v.id" :title="v.label"
         class="w-2 h-2 border border-gold/35 rotate-45 transition-all hover:border-gold/70 hover:bg-gold/20"
         :class="currentIndex() === i ? 'bg-gold border-gold scale-125 shadow-[0_0_10px_rgba(200,160,44,0.6)]' : 'bg-transparent'"
