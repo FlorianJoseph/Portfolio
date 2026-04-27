@@ -9,7 +9,7 @@
       </div>
 
       <!-- Grille -->
-      <div class="grid grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div v-for="group in SKILLS" :key="group.category">
           <h3 class="font-cinzel text-[0.7rem] tracking-[0.2em] uppercase text-gold mb-4">
             {{ group.category }}

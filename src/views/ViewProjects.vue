@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full flex items-center justify-center px-8">
+    <div class="h-full flex items-center justify-center px-6 overflow-y-auto py-8">
         <div class="max-w-[860px] w-full">
 
             <!-- Header -->
