@@ -1,9 +1,8 @@
 export const ABOUT = {
     name: 'Florian Joseph',
-    title: 'Développeur Full-Stack',
-    aboutClass: 'Architecte du Code',
-    level: 12,
-    bio: "Un aventurier des contrées numériques, forgé entre serveurs obscurs et interfaces enchantées. Il trace son chemin à travers les labyrinthes du code, brandissant frameworks et algorithmes comme autant de sortilèges.",
+    title: 'Full-Stack Developer',
+    aboutClass: 'Indie Maker & Streamer',
+    bio: "Fondateur de Charmi, une plateforme SaaS pour streamers Twitch. Je conçois et développe des produits de A à Z — du backend aux interfaces, du marketing au déploiement.",
     email: 'florian@exemple.fr',
     linkedin: 'https://linkedin.com',
     github: 'https://github.com',

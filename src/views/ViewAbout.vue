@@ -1,6 +1,6 @@
 <template>
     <div class="h-full flex items-center justify-center">
-        <div class="grid grid-cols-[260px_1fr] gap-12 items-center max-w-[860px] w-full px-8">
+        <div class="grid grid-cols-[260px_1fr] gap-12 items-center max-w-[960px] w-full px-8">
 
             <!-- Portrait -->
             <div class="sp relative">
@@ -9,6 +9,7 @@
                     <div
                         class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(124,58,237,0.2),transparent_65%)]" />
                     <img src="@/assets/images/portrait.jpg" alt="Florian Joseph" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 bg-[#080610]/10 mix-blend-multiply" />
                 </div>
                 <div
                     class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#080610] border border-gold px-4 py-1 font-mono text-xs text-gold tracking-widest whitespace-nowrap">
@@ -20,23 +21,23 @@
             <div class="flex flex-col gap-4">
                 <h1 class="s1 font-cinzel-deco font-bold leading-tight text-[#e8dfc8]"
                     style="font-size: clamp(1.6rem, 4vw, 2.8rem)">
-                    {{ ABOUT.name }}<br />
-                    <span class="text-gold">{{ ABOUT.title }}</span>
+                    <span class="block">{{ ABOUT.name }}</span>
+                    <span class="block text-gold">{{ ABOUT.title }}</span>
                 </h1>
                 <p class="s2 font-cinzel text-sm tracking-[0.22em] uppercase text-purple-400">
                     ✦
-                    <TypedText :text="`${ABOUT.aboutClass} · Niveau ${ABOUT.level}`" /> ✦
+                    <TypedText :text="ABOUT.aboutClass" /> ✦
                 </p>
-                <p class="s3 italic text-[#9a8f7a] leading-relaxed border-l-2 border-gold/25 pl-4">
+                <p class="s3 text-[#9a8f7a] leading-relaxed border-l-2 border-gold/25 pl-4">
                     {{ ABOUT.bio }}
                 </p>
                 <div class="s4 flex gap-4 flex-wrap">
                     <RouterLink to="/projects"
-                        class="font-cinzel text-xs font-semibold tracking-widest uppercase px-6 py-3 bg-gradient-to-r from-purple-700 to-yellow-600 text-white [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
-                        Voir mes projects
+                        class="font-cinzel text-xs font-semibold tracking-widest uppercase px-6 py-3 bg-purple-700 text-white hover:bg-purple-600 transition-all [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
+                        Voir mes projets
                     </RouterLink>
                     <RouterLink to="/contact"
-                        class="font-cinzel text-xs font-semibold tracking-widest uppercase px-6 py-3 text-gold border border-gold [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
+                        class="font-cinzel text-xs font-semibold tracking-widest uppercase px-6 py-3 text-gold border-t border-b border-gold hover:bg-gold/10 transition-all [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
                         Me contacter
                     </RouterLink>
                 </div>
