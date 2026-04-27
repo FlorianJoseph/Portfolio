@@ -21,10 +21,13 @@
     <!-- Flèche gauche -->
     <div class="hidden md:block fixed left-4 top-1/2 -translate-y-1/2 z-50">
       <button v-if="!isFirst()"
-        class="flex items-center gap-2 px-4 py-2.5 bg-[#080610]/75 border border-gold/25 backdrop-blur-md rounded-md hover:border-gold hover:bg-gold/8 transition-all group"
+        class="flex items-center justify-start gap-2 px-4 py-3 min-w-[110px] bg-[#080610]/90 border border-gold/40 backdrop-blur-md rounded-md hover:border-gold hover:bg-gold/10 transition-all group hover:cursor-pointer"
         @click="goPrev">
-        <span class="text-xl text-[#9a8f7a] group-hover:text-gold transition-colors leading-none">‹</span>
-        <span class="font-cinzel text-[0.72rem] text-[#9a8f7a] group-hover:text-gold transition-colors tracking-wide">
+        <span class="text-2xl text-[#e8dfc8]/90 group-hover:text-gold transition-colors leading-none">
+          <ChevronLeft size="20" />
+        </span>
+        <span
+          class="font-cinzel text-xs text-[#e8dfc8]/90 group-hover:text-gold transition-colors tracking-wide uppercase">
           {{ prevView?.label }}
         </span>
       </button>
@@ -33,12 +36,15 @@
     <!-- Flèche droite -->
     <div class="hidden md:block fixed right-4 top-1/2 -translate-y-1/2 z-50">
       <button v-if="!isLast()"
-        class="flex items-center gap-2 px-4 py-2.5 bg-[#080610]/75 border border-gold/25 backdrop-blur-md rounded-md hover:border-gold hover:bg-gold/8 transition-all group"
+        class="flex items-center justify-end gap-2 px-4 py-3 min-w-[110px] bg-[#080610]/90 border border-gold/40 backdrop-blur-md rounded-md hover:border-gold hover:bg-gold/10 transition-all group hover:cursor-pointer"
         @click="goNext">
-        <span class="font-cinzel text-[0.72rem] text-[#9a8f7a] group-hover:text-gold transition-colors tracking-wide">
+        <span
+          class="font-cinzel text-xs text-[#e8dfc8]/90 group-hover:text-gold transition-colors tracking-wide uppercase">
           {{ nextView?.label }}
         </span>
-        <span class="text-xl text-[#9a8f7a] group-hover:text-gold transition-colors leading-none">›</span>
+        <span class="text-2xl text-[#e8dfc8]/90 group-hover:text-gold transition-colors leading-none">
+          <ChevronRight size="20" />
+        </span>
       </button>
     </div>
 
@@ -60,6 +66,7 @@ import { computed, onMounted, onUnmounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { VIEWS } from '@/data'
 import Topbar from '@/components/Topbar.vue'
+import { ChevronRight, ChevronLeft } from '@lucide/vue'
 
 const router = useRouter()
 const route = useRoute()

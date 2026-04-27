@@ -5,12 +5,14 @@
             <!-- Header -->
             <div class="mb-10 pb-4 border-b border-gold/20">
                 <h2 class="font-cinzel text-2xl font-bold text-gold tracking-wider">Contact</h2>
-                <p class="font-fell italic text-[#9a8f7a] text-sm mt-1">Parlons de votre projet</p>
+                <p class="font-fell italic text-[#e8dfc8]/50 text-sm mt-1">Parlons de votre projet</p>
             </div>
 
             <!-- Parchemin -->
             <div class="border border-gold/20 p-8 mb-8 relative">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#080610] px-3 text-gold text-lg">❧</div>
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#080610] px-3">
+                    <Mail :size="20" class="text-gold" />
+                </div>
                 <div class="flex flex-col gap-3">
                     <a :href="`mailto:${ABOUT.email}`"
                         class="flex items-center justify-center gap-3 font-mono-rpg text-sm text-[#e8dfc8]/80 border border-gold/20 px-6 py-3 hover:border-gold hover:text-gold transition-all">
@@ -37,12 +39,8 @@
                 </div>
 
                 <!-- Disponibilité -->
-                <div class="flex items-center justify-center gap-2 mt-6">
-                    <span
-                        class="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
-                    <span class="font-mono-rpg text-[0.7rem] text-green-500 tracking-widest">
-                        {{ ABOUT.availability }}
-                    </span>
+                <div class="gap-2 mt-6 font-mono-rpg text-[0.6rem] md:text-[0.7rem] text-gold tracking-widest">
+                    {{ ABOUT.availability }}
                 </div>
             </div>
 

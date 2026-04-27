@@ -5,13 +5,13 @@
       <!-- Header -->
       <div class="mb-10 pb-4 border-b border-gold/20">
         <h2 class="font-cinzel text-2xl font-bold text-gold tracking-wider">Skills</h2>
-        <p class="font-fell italic text-[#9a8f7a] text-sm mt-1">Technologies maîtrisées</p>
+        <p class="font-fell italic text-[#e8dfc8]/50 text-sm mt-1">Technologies maîtrisées</p>
       </div>
 
       <!-- Grille -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div v-for="group in SKILLS" :key="group.category">
-          <h3 class="font-cinzel text-[0.7rem] tracking-[0.2em] uppercase text-gold mb-4">
+          <h3 class="font-cinzel text-xs tracking-[0.2em] uppercase text-gold mb-4">
             {{ group.category }}
           </h3>
           <div class="flex flex-col gap-2">
