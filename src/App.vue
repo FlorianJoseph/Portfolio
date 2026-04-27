@@ -54,7 +54,7 @@
         class="w-2 h-2 border border-gold/35 rotate-45 transition-all hover:border-gold/70 hover:bg-gold/20"
         :class="currentIndex() === i ? 'bg-gold border-gold scale-125 shadow-[0_0_10px_rgba(200,160,44,0.6)]' : 'bg-transparent'"
         @click="goTo(i)" />
-      <span class="font-mono-rpg text-[0.62rem] text-[#9a8f7a] tracking-widest ml-2">
+      <span class="font-mono-rpg text-[0.62rem] text-[#e8dfc8]/60 tracking-widest ml-2">
         {{ currentIndex() + 1 }} / {{ VIEWS.length }}
       </span>
     </div>

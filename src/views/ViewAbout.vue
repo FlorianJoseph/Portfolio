@@ -29,7 +29,7 @@
                     <TypedText :text="ABOUT.aboutClass" /> ✦
                 </p>
                 <p
-                    class="s3 text-[#9a8f7a] leading-relaxed md:border-l-2 md:border-gold/25 md:pl-4 md:text-left text-left">
+                    class="s3 text-[#e8dfc8]/65 leading-relaxed md:border-l-2 md:border-gold/25 md:pl-4 md:text-left text-left">
                     {{ ABOUT.bio }}
                 </p>
                 <div class="s4 flex gap-4 flex-wrap justify-center md:justify-start">
@@ -38,7 +38,7 @@
                         Voir mes projets
                     </RouterLink>
                     <RouterLink to="/contact"
-                        class="font-cinzel text-xs font-semibold tracking-widest uppercase px-6 py-3 text-gold border-t border-b border-gold hover:bg-gold/10 transition-all [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
+                        class="font-cinzel text-xs font-semibold tracking-widest uppercase px-6 py-3 text-gold border-t border-b border-gold border-gold/40 hover:bg-gold/10 transition-all [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
                         Me contacter
                     </RouterLink>
                 </div>

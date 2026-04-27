@@ -9,7 +9,7 @@ export const PROJECTS = [
     },
     {
         name: 'Portfolio RPG',
-        description: 'Ce portfolio : conçu avec une esthétique RPG. Navigation par slides, animations stagger, thème custom Tailwind.',
+        description: 'Ce portfolio conçu avec une esthétique RPG. Navigation par slides, animation stagger, thème custom Tailwind.',
         tags: ['Vue', 'TypeScript', 'Tailwind CSS'],
         status: 'Ce site',
         url: null,

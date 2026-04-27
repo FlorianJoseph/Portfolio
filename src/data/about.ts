@@ -7,5 +7,5 @@ export const ABOUT = {
     availability: 'Disponible en alternance — Septembre 2026',
     linkedin: 'https://www.linkedin.com/in/florianjoseph/',
     github: 'https://github.com/FlorianJoseph',
-    cvUrl: '/assets/CV_Florian_Joseph.pdf',
+    cvUrl: '/CV_Florian_Joseph.pdf',
 }

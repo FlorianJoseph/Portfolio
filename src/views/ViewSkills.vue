@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full flex items-center justify-center px-8">
+  <div class="h-full flex items-center justify-center px-6">
     <div class="max-w-[860px] w-full">
 
       <!-- Header -->
@@ -16,7 +16,7 @@
           </h3>
           <div class="flex flex-col gap-2">
             <div v-for="item in group.items" :key="item"
-              class="px-4 py-2.5 border border-gold/30 font-cinzel text-sm text-[#e8dfc8] tracking-wide">
+              class="px-4 py-2.5 border border-gold/25 font-cinzel text-sm text-[#e8dfc8]/85 tracking-wide hover:border-gold/50 hover:text-[#e8dfc8] transition-colors">
               {{ item }}
             </div>
           </div>

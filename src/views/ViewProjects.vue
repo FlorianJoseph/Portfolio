@@ -10,7 +10,7 @@
 
             <!-- Liste -->
             <div class="flex flex-col gap-4">
-                <div v-for="p in PROJECTS" :key="p.name" class="border border-gold/20 p-6 transition-all group">
+                <div v-for="p in PROJECTS" :key="p.name" class="border border-gold/20 p-6 transition-all hover:border-gold/40 group">
                     <!-- Top -->
                     <div class="flex items-start justify-between gap-4 mb-3 flex-wrap">
                         <div>
@@ -36,14 +36,14 @@
                     </div>
 
                     <!-- Description -->
-                    <p class="text-[#9a8f7a] text-sm leading-relaxed mb-4">
+                    <p class="text-[#e8dfc8]/65 text-sm leading-relaxed mb-4">
                         {{ p.description }}
                     </p>
 
                     <!-- Tags -->
                     <div class="flex flex-wrap gap-2">
                         <span v-for="tag in p.tags" :key="tag"
-                            class="font-mono-rpg text-xs text-[#9a8f7a] border border-gold/15 px-2 py-1 tracking-wide">
+                            class="font-mono-rpg text-xs text-[#e8dfc8]/60 border border-gold/20 px-2 py-1 tracking-wide">
                             {{ tag }}
                         </span>
                     </div>
