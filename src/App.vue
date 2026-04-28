@@ -25,11 +25,11 @@
         class="flex items-center justify-start gap-2 px-4 py-3 min-w-[110px] bg-[#080610]/90 border border-gold/40 backdrop-blur-md rounded-md hover:border-gold hover:bg-gold/10 transition-all group hover:cursor-pointer"
         @click="goPrev">
         <span class="text-2xl text-[#e8dfc8]/90 group-hover:text-gold transition-colors leading-none">
-          <ChevronLeft size="20" />
+          <ChevronLeft :size="20" />
         </span>
         <span
           class="font-cinzel text-xs text-[#e8dfc8]/90 group-hover:text-gold transition-colors tracking-wide uppercase">
-          {{ prevView?.label }}
+          {{ prevView?.label ?? '' }}
         </span>
       </button>
     </div>
@@ -41,10 +41,10 @@
         @click="goNext">
         <span
           class="font-cinzel text-xs text-[#e8dfc8]/90 group-hover:text-gold transition-colors tracking-wide uppercase">
-          {{ nextView?.label }}
+          {{ nextView?.label ?? '' }}
         </span>
         <span class="text-2xl text-[#e8dfc8]/90 group-hover:text-gold transition-colors leading-none">
-          <ChevronRight size="20" />
+          <ChevronRight :size="20" />
         </span>
       </button>
     </div>
@@ -78,8 +78,8 @@ const isKnownRoute = computed(() => currentIndex.value !== -1)
 const isFirst = computed(() => !isKnownRoute.value || currentIndex.value === 0)
 const isLast = computed(() => !isKnownRoute.value || currentIndex.value === VIEWS.length - 1)
 
-const prevView = computed(() => !isFirst.value ? VIEWS[currentIndex.value - 1] : null)
-const nextView = computed(() => !isLast.value ? VIEWS[currentIndex.value + 1] : null)
+const prevView = computed(() => currentIndex.value > 0 ? VIEWS[currentIndex.value - 1] : null)
+const nextView = computed(() => currentIndex.value < VIEWS.length - 1 ? VIEWS[currentIndex.value + 1] : null)
 
 function goTo(idx: number) {
   if (idx < 0 || idx >= VIEWS.length) return

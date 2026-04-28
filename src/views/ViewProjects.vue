@@ -31,7 +31,7 @@
                         <a v-if="p.url" :href="p.url" target="_blank"
                             class="flex-shrink-0 flex sm:flex-none items-center gap-2 font-cinzel text-xs font-semibold tracking-wider uppercase text-gold border border-gold/40 px-4 py-2 hover:bg-gold/10 hover:border-gold whitespace-nowrap w-full sm:w-auto justify-center sm:justify-start">
                             Voir le projet
-                            <ArrowRight size="13" />
+                            <ArrowRight :size="13" />
                         </a>
                     </div>
 
