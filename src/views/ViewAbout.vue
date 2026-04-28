@@ -1,6 +1,6 @@
 <template>
     <div class="h-full flex items-center justify-center">
-        <div class="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8 md:gap-12 items-center max-w-[960px] w-full px-6">
+        <div class="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8 md:gap-12 items-center max-w-[960px] w-full px-6 pb-20 md:pb-0">
 
             <!-- Portrait -->
             <div class="sp relative mx-auto w-48 md:w-full">
