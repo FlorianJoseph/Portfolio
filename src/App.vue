@@ -56,7 +56,7 @@
         :class="currentIndex === i ? 'bg-gold border-gold scale-125 shadow-[0_0_10px_rgba(200,160,44,0.6)]' : 'bg-transparent'"
         @click="goTo(i)" />
       <span class="font-mono-rpg text-[0.62rem] text-[#e8dfc8]/60 tracking-widest ml-2">
-        {{ currentIndex + 1 }} / {{ VIEWS.length }}
+        {{ (currentIndex ?? 0) + 1 }} / {{ VIEWS.length }}
       </span>
     </div>
   </div>
@@ -83,8 +83,11 @@ const nextView = computed(() => currentIndex.value < VIEWS.length - 1 ? VIEWS[cu
 
 function goTo(idx: number) {
   if (idx < 0 || idx >= VIEWS.length) return
-  router.push({ name: VIEWS[idx].id })
+  const view = VIEWS[idx]
+  if (!view) return
+  router.push({ name: view.id })
 }
+
 function goNext() { goTo(currentIndex.value + 1) }
 function goPrev() { goTo(currentIndex.value - 1) }
 
@@ -94,8 +97,11 @@ function onKeydown(e: KeyboardEvent) {
 }
 
 let touchStartX = 0
-function onTouchStart(e: TouchEvent) { touchStartX = e.touches[0].clientX }
+function onTouchStart(e: TouchEvent) {
+  if (e.touches[0]) touchStartX = e.touches[0].clientX
+}
 function onTouchEnd(e: TouchEvent) {
+  if (!e.changedTouches[0]) return
   const diff = touchStartX - e.changedTouches[0].clientX
   if (Math.abs(diff) > 50) diff > 0 ? goNext() : goPrev()
 }
