@@ -140,6 +140,41 @@
     }
 }
 
+.corner-runes {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.corner-rune {
+    position: absolute;
+    opacity: 0.35;
+}
+
+.corner-rune.tl {
+    top: 68px;
+    left: 12px;
+}
+
+.corner-rune.tr {
+    top: 68px;
+    right: 12px;
+    transform: scaleX(-1);
+}
+
+.corner-rune.bl {
+    bottom: 12px;
+    left: 12px;
+    transform: scaleY(-1);
+}
+
+.corner-rune.br {
+    bottom: 12px;
+    right: 12px;
+    transform: scale(-1, -1);
+}
+
 html,
 body,
 #app {

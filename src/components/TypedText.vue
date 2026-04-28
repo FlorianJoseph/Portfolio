@@ -7,16 +7,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const props = defineProps<{ text: string; speed?: number }>()
 
 const displayed = ref('')
 const done = ref(false)
+let iv: ReturnType<typeof setInterval>
 
 onMounted(() => {
     let i = 0
-    const iv = setInterval(() => {
+    iv = setInterval(() => {
         i++
         displayed.value = props.text.slice(0, i)
         if (i >= props.text.length) {
@@ -25,6 +26,8 @@ onMounted(() => {
         }
     }, props.speed ?? 38)
 })
+
+onUnmounted(() => clearInterval(iv))
 </script>
 
 <style>

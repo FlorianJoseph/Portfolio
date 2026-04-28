@@ -13,7 +13,7 @@
                 </div>
                 <div
                     class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#080610] border border-gold px-4 py-1 font-mono text-xs text-gold tracking-widest whitespace-nowrap">
-                    {{ ABOUT.aboutClass.toUpperCase() }}
+                    {{ ABOUT.title.toUpperCase() }}
                 </div>
             </div>
 

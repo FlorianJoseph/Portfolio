@@ -1,6 +1,7 @@
 export const PROJECTS = [
     {
         name: 'Charmi',
+        logo: '/charmi-logo.webp',
         description: 'Plateforme SaaS pour streamers Twitch : page publique de liens, planning, découverte, système de raids et monnaie virtuelle. Conçu et développé seul, de la stack au marketing.',
         tags: ['Nuxt', 'Supabase', 'Stripe', 'TypeScript', 'Tailwind CSS', 'PrimeVue', 'Resend', 'Pinia'],
         status: 'En production',

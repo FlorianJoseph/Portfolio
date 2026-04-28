@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full flex items-center justify-center px-6">
+  <div class="h-full flex items-start md:items-center justify-center px-6 overflow-y-auto py-8">
     <div class="max-w-[860px] w-full">
 
       <!-- Header -->
@@ -11,12 +11,13 @@
       <!-- Grille -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div v-for="group in SKILLS" :key="group.category">
-          <h3 class="font-cinzel text-xs tracking-[0.2em] uppercase text-gold mb-4">
+          <h3 :class="group.headerClass" class="font-cinzel text-xs tracking-[0.2em] uppercase mb-4 pb-2 border-b">
             {{ group.category }}
           </h3>
           <div class="flex flex-col gap-2">
             <div v-for="item in group.items" :key="item"
-              class="px-4 py-2.5 border border-gold/25 font-cinzel text-sm text-[#e8dfc8]/85 tracking-wide hover:border-gold/50 hover:text-[#e8dfc8] transition-colors">
+              :class="group.itemClass"
+              class="px-4 py-2.5 border font-cinzel text-sm text-[#e8dfc8]/75 tracking-wide transition-colors">
               {{ item }}
             </div>
           </div>

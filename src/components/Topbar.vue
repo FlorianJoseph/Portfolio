@@ -6,13 +6,14 @@
         <!-- Nom -->
         <RouterLink to="/"
             class="font-cinzel text-sm font-bold tracking-[0.12em] text-gold hover:text-gold2 transition-colors whitespace-nowrap">
-            {{ ABOUT.name.toUpperCase() }}
+            <span class="md:hidden">FJ</span>
+            <span class="hidden md:inline">{{ ABOUT.name.toUpperCase() }}</span>
         </RouterLink>
 
         <!-- Séparateur -->
         <div class="h-5 w-px bg-gold/20 mx-5" />
 
-        <!-- Nav routes -->
+        <!-- Nav routes desktop -->
         <nav class="hidden md:flex items-center gap-1 flex-1">
             <RouterLink v-for="v in VIEWS.filter(v => v.id !== 'about')" :key="v.id" :to="{ name: v.id }"
                 class="font-cinzel text-[0.7rem] tracking-[0.08em] uppercase px-3 py-1.5 transition-all border border-transparent"
@@ -29,14 +30,14 @@
                 class="text-[#e8dfc8]/60 p-2 border border-transparent hover:text-gold hover:border-gold/20 transition-all">
                 <Mail :size="15" />
             </a>
-            <a :href="ABOUT.github" target="_blank"
+            <a :href="ABOUT.github" target="_blank" rel="noopener noreferrer"
                 class="text-[#e8dfc8]/60 p-2 border border-transparent hover:text-gold hover:border-gold/20 transition-all">
                 <svg :width="15" :height="15" viewBox="0 0 24 24" fill="currentColor">
                     <path
                         d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
                 </svg>
             </a>
-            <a :href="ABOUT.linkedin" target="_blank"
+            <a :href="ABOUT.linkedin" target="_blank" rel="noopener noreferrer"
                 class="text-[#e8dfc8]/60 p-2 border border-transparent hover:text-gold hover:border-gold/20 transition-all">
                 <svg :width="15" :height="15" viewBox="0 0 24 24" fill="currentColor">
                     <path
@@ -44,19 +45,63 @@
                 </svg>
             </a>
             <a :href="ABOUT.cvUrl" download
-                class="flex items-center gap-1.5 font-cinzel text-xs font-bold tracking-wider text-[#080610] bg-gold px-4 py-2 ml-1 hover:bg-gold2 transition-all [clip-path:polygon(5px_0%,100%_0%,calc(100%-5px)_100%,0%_100%)]">
+                class="hidden md:flex items-center gap-1.5 font-cinzel text-xs font-bold tracking-wider text-[#080610] bg-gold px-4 py-2 ml-1 hover:bg-gold2 transition-all [clip-path:polygon(5px_0%,100%_0%,calc(100%-5px)_100%,0%_100%)]">
+                <Download :size="13" />
+                Télécharger le CV
+            </a>
+
+            <!-- Hamburger mobile -->
+            <button
+                class="md:hidden p-2 text-[#e8dfc8]/60 hover:text-gold border border-transparent hover:border-gold/20 transition-all"
+                @click="menuOpen = !menuOpen"
+                :aria-label="menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'">
+                <Menu v-if="!menuOpen" :size="18" />
+                <X v-else :size="18" />
+            </button>
+        </div>
+    </header>
+
+    <!-- Menu mobile -->
+    <Transition name="mobile-menu">
+        <div v-if="menuOpen"
+            class="md:hidden fixed top-14 left-0 right-0 z-40 bg-[#080610]/98 border-b border-gold/20 backdrop-blur-md px-6 py-4 flex flex-col gap-1">
+            <RouterLink v-for="v in VIEWS" :key="v.id" :to="{ name: v.id }"
+                class="font-cinzel text-sm tracking-[0.08em] uppercase px-4 py-3 transition-all border border-transparent"
+                :class="route.name === v.id
+                    ? 'text-gold border-gold/30 bg-gold/5'
+                    : 'text-[#e8dfc8]/50 hover:text-gold hover:border-gold/20'"
+                @click="menuOpen = false">
+                {{ v.label }}
+            </RouterLink>
+            <a :href="ABOUT.cvUrl" download
+                class="mt-2 flex items-center justify-center gap-1.5 font-cinzel text-xs font-bold tracking-wider text-[#080610] bg-gold px-4 py-3 hover:bg-gold2 transition-all [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]"
+                @click="menuOpen = false">
                 <Download :size="13" />
                 Télécharger le CV
             </a>
         </div>
-
-    </header>
+    </Transition>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { ABOUT, VIEWS } from '@/data'
-import { Mail, Download } from '@lucide/vue'
+import { Mail, Download, Menu, X } from '@lucide/vue'
 
 const route = useRoute()
+const menuOpen = ref(false)
 </script>
+
+<style>
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+    opacity: 0;
+    transform: translateY(-8px);
+}
+</style>
