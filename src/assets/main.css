@@ -1,35 +1,189 @@
-@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English:ital@0;1&family=Share+Tech+Mono&display=swap');
+@import "tailwindcss";
 
+
+@theme {
+    --font-cinzel: 'Cinzel', serif;
+    --font-cinzel-deco: 'Cinzel Decorative', serif;
+    --font-fell: 'IM Fell English', serif;
+    --font-mono-rpg: 'Share Tech Mono', monospace;
+    --color-gold: #c8a02c;
+    --color-gold2: #f0d060;
+}
+
+/* STARS */
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(1px 1px at 8% 12%, rgba(255, 255, 255, 0.15) 0%, transparent 100%),
+        radial-gradient(1px 1px at 22% 65%, rgba(255, 255, 255, 0.1) 0%, transparent 100%),
+        radial-gradient(1px 1px at 38% 28%, rgba(255, 255, 255, 0.12) 0%, transparent 100%),
+        radial-gradient(1px 1px at 54% 78%, rgba(255, 255, 255, 0.08) 0%, transparent 100%),
+        radial-gradient(1px 1px at 68% 42%, rgba(255, 255, 255, 0.12) 0%, transparent 100%),
+        radial-gradient(1px 1px at 82% 18%, rgba(255, 255, 255, 0.1) 0%, transparent 100%),
+        radial-gradient(1px 1px at 91% 72%, rgba(255, 255, 255, 0.15) 0%, transparent 100%),
+        radial-gradient(1px 1px at 4% 88%, rgba(255, 255, 255, 0.08) 0%, transparent 100%),
+        radial-gradient(1px 1px at 47% 8%, rgba(255, 255, 255, 0.08) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 100%),
+        radial-gradient(1px 1px at 76% 90%, rgba(255, 255, 255, 0.08) 0%, transparent 100%),
+        radial-gradient(2px 2px at 33% 55%, rgba(200, 160, 44, 0.08) 0%, transparent 100%),
+        radial-gradient(2px 2px at 72% 33%, rgba(124, 58, 237, 0.08) 0%, transparent 100%);
+}
+
+/* MIST */
+.mist {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.mist-layer {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0;
+}
+
+.mist-layer:nth-child(1) {
+    width: 60vw;
+    height: 40vh;
+    background: radial-gradient(ellipse, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+    top: 20%;
+    left: -10%;
+    animation: mist-drift1 18s ease-in-out infinite;
+}
+
+.mist-layer:nth-child(2) {
+    width: 50vw;
+    height: 35vh;
+    background: radial-gradient(ellipse, rgba(200, 160, 44, 0.03) 0%, transparent 70%);
+    top: 50%;
+    right: -5%;
+    animation: mist-drift2 22s ease-in-out infinite;
+}
+
+.mist-layer:nth-child(3) {
+    width: 40vw;
+    height: 30vh;
+    background: radial-gradient(ellipse, rgba(124, 58, 237, 0.04) 0%, transparent 70%);
+    bottom: 10%;
+    left: 30%;
+    animation: mist-drift3 15s ease-in-out infinite;
+}
+
+@keyframes mist-drift1 {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        opacity: 1;
+        transform: translate(5vw, -4vh) scale(1.1);
+    }
+
+    66% {
+        opacity: 0.5;
+        transform: translate(-3vw, 3vh) scale(0.95);
+    }
+}
+
+@keyframes mist-drift2 {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: translate(0, 0) scale(1);
+    }
+
+    40% {
+        opacity: 0.9;
+        transform: translate(-6vw, 5vh) scale(1.08);
+    }
+
+    70% {
+        opacity: 0.4;
+        transform: translate(2vw, -2vh) scale(1.02);
+    }
+}
+
+@keyframes mist-drift3 {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translate(4vw, -6vh) scale(1.15);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .s1,
+    .s2,
+    .s3,
+    .s4,
+    .sp {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+.corner-runes {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.corner-rune {
+    position: absolute;
+    opacity: 0.35;
+}
+
+.corner-rune.tl {
+    top: 68px;
+    left: 12px;
+}
+
+.corner-rune.tr {
+    top: 68px;
+    right: 12px;
+    transform: scaleX(-1);
+}
+
+.corner-rune.bl {
+    bottom: 12px;
+    left: 12px;
+    transform: scaleY(-1);
+}
+
+.corner-rune.br {
+    bottom: 12px;
+    right: 12px;
+    transform: scale(-1, -1);
+}
+
+html,
+body,
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+    height: 100%;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+body {
+    background: #080610;
+    color: #e8dfc8;
+    overflow: hidden;
+    font-family: 'IM Fell English', serif;
 }

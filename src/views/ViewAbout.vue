@@ -1,0 +1,102 @@
+<template>
+    <div class="h-full flex items-center justify-center">
+        <div class="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8 md:gap-12 items-center max-w-[960px] w-full px-6">
+
+            <!-- Portrait -->
+            <div class="sp relative mx-auto w-48 md:w-full">
+                <div
+                    class="relative aspect-square border-2 border-gold bg-gradient-to-br from-[#1a0e30] to-[#0a1220] flex items-center justify-center overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(124,58,237,0.2),transparent_65%)]" />
+                    <img src="@/assets/images/portrait.jpg" alt="Florian Joseph" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 bg-[#080610]/10 mix-blend-multiply" />
+                </div>
+                <div
+                    class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#080610] border border-gold px-4 py-1 font-mono text-xs text-gold tracking-widest whitespace-nowrap">
+                    {{ ABOUT.title.toUpperCase() }}
+                </div>
+            </div>
+
+            <!-- Contenu -->
+            <div class="flex flex-col gap-4 text-center md:text-left">
+                <h1 class="s1 font-cinzel-deco font-bold leading-tight text-[#e8dfc8]"
+                    style="font-size: clamp(1.2rem, 6vw, 2.8rem)">
+                    <span class="block">{{ ABOUT.name }}</span>
+                    <span class="block text-gold">{{ ABOUT.title }}</span>
+                </h1>
+                <p class="s2 font-cinzel text-sm tracking-[0.22em] uppercase text-purple-400 whitespace-nowrap">
+                    ✦
+                    <TypedText :text="ABOUT.aboutClass" /> ✦
+                </p>
+                <p
+                    class="s3 text-[#e8dfc8]/65 leading-relaxed md:border-l-2 md:border-gold/25 md:pl-4 md:text-left text-left">
+                    {{ ABOUT.bio }}
+                </p>
+                <div class="s4 flex gap-4 flex-wrap justify-center md:justify-start">
+                    <RouterLink to="/projects"
+                        class="font-cinzel text-xs font-semibold tracking-widest uppercase px-6 py-3 bg-purple-700 text-white hover:bg-purple-600 transition-all [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
+                        Voir mes projets
+                    </RouterLink>
+                    <RouterLink to="/contact"
+                        class="font-cinzel text-xs font-semibold tracking-widest uppercase px-6 py-3 text-gold border-t border-b border-gold border-gold/40 hover:bg-gold/10 transition-all [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
+                        Me contacter
+                    </RouterLink>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { ABOUT } from '@/data'
+import TypedText from '@/components/TypedText.vue'
+</script>
+
+<style scoped>
+@keyframes about-rise {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes about-fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.s1 {
+    opacity: 0;
+    animation: about-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+}
+
+.s2 {
+    opacity: 0;
+    animation: about-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.22s forwards;
+}
+
+.s3 {
+    opacity: 0;
+    animation: about-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.38s forwards;
+}
+
+.s4 {
+    opacity: 0;
+    animation: about-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.54s forwards;
+}
+
+.sp {
+    opacity: 0;
+    animation: about-fade 0.8s ease forwards;
+}
+</style>
