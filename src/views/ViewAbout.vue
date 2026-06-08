@@ -1,6 +1,7 @@
 <template>
     <div class="h-full flex items-center justify-center">
-        <div class="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8 md:gap-12 items-center max-w-[960px] w-full px-6 pb-20 md:pb-0">
+        <div
+            class="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8 md:gap-12 items-center max-w-[960px] w-full px-6 pb-20 md:pb-0">
 
             <!-- Portrait -->
             <div class="sp relative mx-auto w-48 md:w-full">
@@ -13,7 +14,7 @@
                 </div>
                 <div
                     class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#080610] border border-gold px-4 py-1 font-mono text-xs text-gold tracking-widest whitespace-nowrap">
-                    {{ ABOUT.title.toUpperCase() }}
+                    {{ ABOUT.aboutClass.toUpperCase() }}
                 </div>
             </div>
 
@@ -24,22 +25,28 @@
                     <span class="block">{{ ABOUT.name }}</span>
                     <span class="block text-gold">{{ ABOUT.title }}</span>
                 </h1>
-                <p class="s2 font-cinzel text-sm tracking-[0.22em] uppercase text-purple-400 whitespace-nowrap">
-                    ✦
-                    <TypedText :text="ABOUT.aboutClass" /> ✦
+                <!-- Subtitle -->
+                <p class="s2 font-mono-rpg text-xs tracking-[0.18em] uppercase text-[#e8dfc8]/40">
+                    {{ ABOUT.subtitle }}
                 </p>
+
                 <p
                     class="s3 text-[#e8dfc8]/65 leading-relaxed md:border-l-2 md:border-gold/25 md:pl-4 md:text-left text-left">
                     {{ ABOUT.bio }}
                 </p>
+
+                <span class="s3 font-mono-rpg text-xs text-[#e8dfc8]/40 tracking-wider">
+                    ✦ {{ ABOUT.formation }}
+                </span>
+
                 <div class="s4 flex gap-4 flex-wrap justify-center md:justify-start">
                     <RouterLink to="/projects"
-                        class="font-cinzel text-xs font-semibold tracking-widest uppercase px-6 py-3 bg-purple-700 text-white hover:bg-purple-600 transition-all [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
-                        Voir mes projets
+                        class="font-cinzel text-sm font-semibold tracking-widest uppercase px-6 py-3 bg-purple-700 text-white hover:bg-purple-600 transition-all [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
+                        Voir les projets
                     </RouterLink>
                     <RouterLink to="/contact"
-                        class="font-cinzel text-xs font-semibold tracking-widest uppercase px-6 py-3 text-gold border-t border-b border-gold border-gold/40 hover:bg-gold/10 transition-all [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
-                        Me contacter
+                        class="font-cinzel text-sm font-semibold tracking-widest uppercase px-6 py-3 text-gold border-t border-b border-gold border-gold/40 hover:bg-gold/10 transition-all [clip-path:polygon(8px_0%,100%_0%,calc(100%-8px)_100%,0%_100%)]">
+                        Contacter
                     </RouterLink>
                 </div>
             </div>
@@ -49,7 +56,6 @@
 
 <script setup lang="ts">
 import { ABOUT } from '@/data'
-import TypedText from '@/components/TypedText.vue'
 </script>
 
 <style scoped>

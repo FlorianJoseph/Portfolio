@@ -1,17 +1,16 @@
 <template>
   <div class="h-full flex items-start md:items-center justify-center px-6 overflow-y-auto py-8 pb-20 md:pb-0">
-    <div class="max-w-[860px] w-full">
+    <div class="max-w-[1000px] w-full">
 
       <!-- Header -->
       <div class="mb-10 pb-4 border-b border-gold/20">
         <h2 class="font-cinzel text-2xl font-bold text-gold tracking-wider">Skills</h2>
-        <p class="font-fell italic text-[#e8dfc8]/50 text-sm mt-1">Technologies maîtrisées</p>
       </div>
 
       <!-- Grille -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div v-for="group in SKILLS" :key="group.category">
-          <h3 :class="group.headerClass" class="font-cinzel text-xs tracking-[0.2em] uppercase mb-4 pb-2 border-b">
+          <h3 :class="group.headerClass" class="font-cinzel text-sm tracking-[0.2em] uppercase mb-4 pb-2 border-b">
             {{ group.category }}
           </h3>
           <div class="flex flex-col gap-2">

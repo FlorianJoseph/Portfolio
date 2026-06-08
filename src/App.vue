@@ -28,7 +28,7 @@
           <ChevronLeft :size="20" />
         </span>
         <span
-          class="font-cinzel text-xs text-[#e8dfc8]/90 group-hover:text-gold transition-colors tracking-wide uppercase">
+          class="font-cinzel text-sm text-[#e8dfc8]/90 group-hover:text-gold transition-colors tracking-wide uppercase">
           {{ prevView?.label ?? '' }}
         </span>
       </button>
@@ -40,7 +40,7 @@
         class="flex items-center justify-end gap-2 px-4 py-3 min-w-[110px] bg-[#080610]/90 border border-gold/40 backdrop-blur-md rounded-md hover:border-gold hover:bg-gold/10 transition-all group hover:cursor-pointer"
         @click="goNext">
         <span
-          class="font-cinzel text-xs text-[#e8dfc8]/90 group-hover:text-gold transition-colors tracking-wide uppercase">
+          class="font-cinzel text-sm text-[#e8dfc8]/90 group-hover:text-gold transition-colors tracking-wide uppercase">
           {{ nextView?.label ?? '' }}
         </span>
         <span class="text-2xl text-[#e8dfc8]/90 group-hover:text-gold transition-colors leading-none">
@@ -55,7 +55,7 @@
         class="w-2 h-2 border border-gold/35 rotate-45 transition-all hover:border-gold/70 hover:bg-gold/20"
         :class="currentIndex === i ? 'bg-gold border-gold scale-125 shadow-[0_0_10px_rgba(200,160,44,0.6)]' : 'bg-transparent'"
         @click="goTo(i)" />
-      <span class="font-mono-rpg text-[0.62rem] text-[#e8dfc8]/60 tracking-widest ml-2">
+      <span class="font-mono-rpg text-xs text-[#e8dfc8]/60 tracking-widest ml-2">
         {{ (currentIndex ?? 0) + 1 }} / {{ VIEWS.length }}
       </span>
     </div>
